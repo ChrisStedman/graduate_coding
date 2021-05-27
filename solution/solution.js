@@ -2,10 +2,7 @@
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 const members = require("../data/members.json");
-
-//import members.json file
-//import members from "../data/members.json";
-//https://nodejs.org/api/esm.html#esm_json_modules
+var fs = require("fs");
 
 //For each member, split address into array using ',' as a delimeter
 //Access the first index of the address array (this is always the state), trim the string to remove leading and trailing spaces
@@ -28,4 +25,16 @@ memberStates.forEach((state) => {
   states[state] = states[state] + 1;
 });
 
-console.log(states);
+let result = "";
+
+//Create string formatted as csv
+Object.keys(states).forEach((key) => {
+  result += `${key.toString()}, ${states[key]}\n`;
+});
+
+//Write solution to csv file
+fs.writeFile("solution.csv", result, (error) => {
+  if (error) {
+    console.log(error);
+  }
+});
