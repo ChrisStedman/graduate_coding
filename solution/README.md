@@ -28,6 +28,8 @@ Each line contains the abbreviation of the state followed by the number of times
 
 When opened in excel, this file displays state abbreviations in column A, with the corresponding count of the state in column B.
 
+Note: Active & inactive members were counted as the instructions did not specify that inactive members should be excluded.
+
 ## Thoughts on the problem
 
 I used Javascript to develop my solution because it is ideal for small programming challenges such as these. Javascript allows developers to easily import/export files and supports JSON data, facilitating rapid development.
